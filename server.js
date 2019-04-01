@@ -1,19 +1,20 @@
-// Dependencies
-// =============================================================
 var express = require("express");
 
-// Sets up the Express App
-// =============================================================
+//Setting express to variable
 var app = express();
+
+//Defines the custom port the site will host on
 var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
+//This is for URL parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./app/routing/apiRoutes.js");
-require("./app/routing/htmlRoutes.js");
+//This requires that the specified file paths below exist so the app knows where to search for data.
+require("./app/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
 
+//Code below runs app on server and returns a console.log is connection is successful.
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+  console.log("App listening on PORT: " + PORT);
 });

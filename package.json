@@ -1,25 +1,26 @@
 {
-  "name": "Friend-Finder",
+  "name": "friendfinder",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.16.4"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tcho9522/Friend-Finder.git"
+    "url": "git+https://github.com/Zgarcia72292/FriendFinder.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tcho9522/Friend-Finder/issues"
+    "url": "https://github.com/Zgarcia72292/FriendFinder/issues"
   },
-  "homepage": "https://github.com/tcho9522/Friend-Finder#readme"
+  "homepage": "https://github.com/Zgarcia72292/FriendFinder#readme",
+  "dependencies": {
+    "array-sort": "^1.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
 }

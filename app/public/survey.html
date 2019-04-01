@@ -16,23 +16,39 @@
 
 <body>
     <h1>Survey Questions</h1>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="name">
+    </div>
     <form>
         <div class="form-row align-items-center" id='questionPanel'></div>
     </form>
-
+    <button class="btn btn-primary btn-lg" id="submitButton"><span class="fa fa-plus"></span>Submit</button>
+    <footer>
+        <a href="/api/friends">API: Friend List</a>
+    </footer>
 
     <script>
         var questions = [
             "I love burgers",
             "I love movies",
-            "I love music"
+            "I love music",
+            "I love tv shows",
+            "I love coding",
+            "I love coding",
+            "I love coding",
+            "I love coding",
+            "I love coding",
+            "I love coding",
+            "I love coding",
         ];
-        // for (var i = 0; i < questions.length; i++) {
-        for (var i = 0; i < 1; i++) {
+
+        for (var i = 0; i < questions.length; i++) {
             $("#questionPanel").append(`<h3>${questions[i]}</h3>
-            <div class="col-auto my-1">
+        
+            <div style="float: left" class="col-auto my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select id="question0" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <select id="question${i}" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                     <option selected>Choose...</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -41,16 +57,28 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
             </div>
-            <br>
             `);
         }
-        $("#questionPanel").append(`
-            <button class="btn btn-primary btn-lg" id="submitButton"><span class="fa fa-plus"></span>Go to Survey</button>
-        `);
+
         $("#submitButton").on("click", function () {
             event.preventDefault();
-            console.log("reached")
-            console.log($("question0").val());
+            var newFriend = {
+                name: $(".name").val(),
+                scores: [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
+                ]
+            }
+            console.log(newFriend)
+            $.post("api/friends", newFriend)
         })
     </script>
 </body>
