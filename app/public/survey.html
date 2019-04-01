@@ -20,18 +20,19 @@
         <div class="form-row align-items-center" id='questionPanel'></div>
     </form>
 
-    
+
     <script>
         var questions = [
-            "Question 1",
-            "Question 2",
-            "Question 3"
+            "I love burgers",
+            "I love movies",
+            "I love music"
         ];
-        for(var i=0; i<questions.length; i++){
+        // for (var i = 0; i < questions.length; i++) {
+        for (var i = 0; i < 1; i++) {
             $("#questionPanel").append(`<h3>${questions[i]}</h3>
             <div class="col-auto my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <select id="question0" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                     <option selected>Choose...</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
@@ -39,16 +40,17 @@
                     <option value="4">4</option>
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
-
             </div>
+            <br>
             `);
         }
         $("#questionPanel").append(`
             <button class="btn btn-primary btn-lg" id="submitButton"><span class="fa fa-plus"></span>Go to Survey</button>
         `);
-        $("#submitButton").on("click",function(){
+        $("#submitButton").on("click", function () {
+            event.preventDefault();
             console.log("reached")
-            console.log($("option").val());
+            console.log($("question0").val());
         })
     </script>
 </body>
